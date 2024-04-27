@@ -1,6 +1,8 @@
 package com.jardel.SpringScreemMatch;
 
+import com.jardel.SpringScreemMatch.model.DadosSerie;
 import com.jardel.SpringScreemMatch.service.ConsumoAPI;
+import com.jardel.SpringScreemMatch.service.ConverteDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,9 +12,7 @@ public class SpringScreemMatchApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringScreemMatchApplication.class, args);
-
 	}
-
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -20,5 +20,8 @@ public class SpringScreemMatchApplication implements CommandLineRunner {
 		var json = consumoApi.obterDados("https://www.omdbapi.com/?apikey=910a96b4&t=Gilmore+Girls");
 		System.out.println(json);
 
+		ConverteDados conversor  = new ConverteDados();
+		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
+		System.out.println(dados);
 	}
 }
