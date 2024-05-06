@@ -17,7 +17,7 @@ public record DadosSerie(
                 "Titulo: " + titulo +
                 ", Total de Temporadas: " + totalTemporadas +
                 ", Avaliacão: " + avaliacao  +
-                ']';
+                "]";
     }
 }
 
